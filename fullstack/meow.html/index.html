@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to MeOw Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #202124; /* Dark background color */
+            color: #fff; /* Light text color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: #27292c; /* Darker background color */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00e676; /* Green accent color */
+            font-family: 'Pacifico', cursive;
+            font-size: 36px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ddd;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            box-sizing: border-box;
+            background-color: #424242; /* Darker input field background color */
+            color: #00e676;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #00b247e3;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+        .form-group button:hover {
+            background-color: #00b247ba;
+        }
+    </style>
+    <!-- Link to Pacifico font -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form" onsubmit="login(event)">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function login(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Get form values
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Basic validation (you can add more complex validation)
+            if (username === 'user' && password === 'password') {
+                alert('Login successful! Redirecting to chatroom.');
+                // Redirect to chatroom or perform other actions
+                window.location.href = 'chat.html'; // Change the URL to your chatroom page
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
