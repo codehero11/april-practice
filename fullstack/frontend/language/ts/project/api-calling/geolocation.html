@@ -1,0 +1,12 @@
+<script>
+    let data= fetch('https://api.bigdatacloud.net/data/reverse-geocode-client')
+ data.then((g)=>{return g.json()}).then((g1)=>{
+     console.log(g1)
+ })
+ 
+ let geolocation=async ()=>{
+     let data= fetch('https://api.bigdatacloud.net/data/reverse-geocode-client')
+     console.log(await (await data).json())
+ }
+ geolocation()
+ </script>

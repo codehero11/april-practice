@@ -1,0 +1,12 @@
+<script>
+    let data= fetch('https://jsonplaceholder.typicode.com/comments')
+ data.then((g)=>{return g.json()}).then((g1)=>{
+     console.log(g1)
+ })
+ 
+ let jsoncomment=async ()=>{
+     let data= fetch('https://jsonplaceholder.typicode.com/comments')
+     console.log(await (await data).json())
+ }
+ jsoncomment()
+ </script>
