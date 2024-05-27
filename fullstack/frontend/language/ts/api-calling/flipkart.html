@@ -1,0 +1,12 @@
+<script>
+    let data= fetch('https://fakestoreapi.com/products')
+ data.then((g)=>{return g.json()}).then((g1)=>{
+     console.log(g1)
+ })
+ 
+ let flipkart=async ()=>{
+     let data= fetch('https://fakestoreapi.com/products')
+     console.log(await (await data).json())
+ }
+ flipkart()
+ </script>

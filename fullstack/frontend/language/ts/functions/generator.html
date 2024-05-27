@@ -1,0 +1,21 @@
+<script>
+    function* playgame(){
+        yield "first chance";
+        yield "second chance";
+        yield "third chance--died";
+    }
+
+    let sara = playgame();
+    console.log("sara--", sara.next()); 
+    console.log("sara--", sara.next()); 
+    console.log("sara--", sara.next()); 
+    console.log("sara--", sara.next()); 
+    
+    
+
+    let meer = playgame();
+    console.log("meer--", meer.next()); 
+
+    let nishan = playgame();
+    console.log("nishan--", nishan.next()); 
+</script>

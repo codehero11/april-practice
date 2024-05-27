@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #root {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="root">hour:00minute:00sec:00</h1>
+    <script>
+        let h1 = document.getElementById('root');
+        let sec = 0, minute = 0, hour = 0;
+
+        function updateDisplay() {
+            h1.innerHTML = `hour:${hour.toString().padStart(2, '0')}minute:${minute.toString().padStart(2, '0')}sec:${sec.toString().padStart(2, '0')}`;
+        }
+
+        setInterval(() => {
+            sec++;
+            if (sec == 60) {
+                sec = 0;
+                minute++;
+                if (minute == 60) {
+                    minute = 0;
+                    hour++;
+                }
+            }
+            updateDisplay();
+        }, 1000);
+
+        updateDisplay();  
+
+        let stopwatchSec = 0;
+        setInterval(() => {
+            console.log(stopwatchSec++);
+        }, 1000);
+    </script>
+</body>
+</html>
