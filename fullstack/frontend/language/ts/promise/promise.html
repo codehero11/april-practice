@@ -1,11 +1,18 @@
 <script>
-    let sarasPromise=new Promise((fullfill,nff)=>{
-        setTimeout(()=>{
+    let sarasPromise = new Promise((fullfill, nff) => {
+        setTimeout(() => {
             //fullfill("yes sara giving party")
-            nff("very bad sara")},2000)
-
-        })
+            nff("very bad sara")
+        }, 2000)
+    })
+    
     console.log(sarasPromise)
-    sarasPromis.then((g)=>{console.log(g)})
-    sarasPromise.catch((g)=>{coonsole.log(g)})
+
+    sarasPromise.then((g) => { // Corrected "sarasPromis" to "sarasPromise"
+        console.log(g)
+    })
+
+    sarasPromise.catch((g) => { // Corrected "coonsole.log" to "console.log"
+        console.log(g)
+    })
 </script>
