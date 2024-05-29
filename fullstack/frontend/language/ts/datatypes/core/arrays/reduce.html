@@ -1,0 +1,12 @@
+<script>
+    const array = [2, 2, 4, 4, 5, 5, 6, 6];
+
+const uniqueArray = array.reduce((accumulator, currentValue) => {
+    
+    accumulator.add(currentValue);
+    return accumulator;
+}, new Set());
+
+console.log([...uniqueArray]); 
+
+</script>

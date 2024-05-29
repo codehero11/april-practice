@@ -1,0 +1,12 @@
+<script>
+    let data= fetch('')
+ data.then((g)=>{return g.json()}).then((g1)=>{
+     console.log(g1)
+ })
+ 
+ let pokimon=async ()=>{
+     let data= fetch('')
+     console.log(await (await data).json())
+ }
+pokimon()
+ </script>

@@ -1,0 +1,12 @@
+<script>
+    let data= fetch('https://api.github.com/users')
+ data.then((g)=>{return g.json()}).then((g1)=>{
+     console.log(g1)
+ })
+ 
+ let github=async ()=>{
+     let data= fetch('https://api.github.com/users')
+     console.log(await (await data).json())
+ }
+ github()
+ </script>

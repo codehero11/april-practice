@@ -1,0 +1,12 @@
+<script>
+    let data= fetch('https://pokeapi.co/api/v2/pokemon/')
+ data.then((g)=>{return g.json()}).then((g1)=>{
+     console.log(g1)
+ })
+ 
+ let pokimon=async ()=>{
+     let data= fetch('https://pokeapi.co/api/v2/pokemon/')
+     console.log(await (await data).json())
+ }
+ pokimon()
+ </script>

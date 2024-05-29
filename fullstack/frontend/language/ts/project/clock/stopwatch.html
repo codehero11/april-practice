@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #root {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            color: #333;
+        }
+
+        #buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button.clicked {
+            background-color: #dc3545;
+        }
+
+        button.clicked:hover {
+            background-color: #bd2130;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="root">hour:00minute:00sec:00</h1>
+    <div id="buttons">
+        <button onclick="startStopwatch()" id="startButton">Start</button>
+        <button onclick="stopStopwatch()" id="stopButton">Stop</button>
+    </div>
+
+    <script>
+        let h1 = document.getElementById('root');
+        let sec = 0, minute = 0, hour = 0;
+        let stopwatchIsRunning = false;
+        let stopwatchInterval;
+
+        function updateDisplay() {
+            h1.innerHTML = `hour:${hour.toString().padStart(2, '0')}minute:${minute.toString().padStart(2, '0')}sec:${sec.toString().padStart(2, '0')}`;
+        }
+
+        function startStopwatch() {
+            if (!stopwatchIsRunning) {
+                stopwatchInterval = setInterval(() => {
+                    sec++;
+                    if (sec == 60) {
+                        sec = 0;
+                        minute++;
+                        if (minute == 60) {
+                            minute = 0;
+                            hour++;
+                        }
+                    }
+                    updateDisplay();
+                }, 1000);
+                stopwatchIsRunning = true;
+                document.getElementById('startButton').classList.add('clicked');
+            }
+        }
+
+        function stopStopwatch() {
+            clearInterval(stopwatchInterval);
+            stopwatchIsRunning = false;
+            document.getElementById('startButton').classList.remove('clicked');
+        }
+
+        updateDisplay(); 
+    </script>
+</body>
+</html>
